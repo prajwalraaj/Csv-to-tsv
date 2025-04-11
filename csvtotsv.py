@@ -1,8 +1,11 @@
 import csv
 
-with open('Data.csv','r') as csvin, open('Data.tsv', 'w') as tsvout:
-    csvin = csv.reader(csvin)
-    tsvout = csv.writer(tsvout, delimiter='\t')
+# Open the input CSV file for reading and output TSV file for writing
+with open('Data.csv', 'r', newline='') as csvin, open('Data.tsv', 'w', newline='') as tsvout:
+    # Create CSV reader and TSV writer objects
+    csv_reader = csv.reader(csvin)
+    tsv_writer = csv.writer(tsvout, delimiter='\t')
 
-    for row in csvin:
-        tsvout.writerow(row)
+    # Write each row from CSV to TSV using tab delimiter
+    for row in csv_reader:
+        tsv_writer.writerow(row)
